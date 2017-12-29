@@ -18,6 +18,7 @@
 以及[startDownLoadFile方法](https://github.com/SSuperYe/INetUtils/blob/master/networks/src/main/java/com/dangdailife/networks/network/NetWorks.java)<br>
 
 将[networks包](https://github.com/SSuperYe/INetUtils/tree/master/networks)导入后，东西都可以修改的，dialog样式、请求的设置、各自的错误处理<br>
-部分代码有做相对应的注释，仅供参考，欢迎随手star。<br><br>
 
-框架正持续使用和不断完善，内部集成Rx系列相关的库(Rx的权限请求和下载)，感谢相关库的作者，还有前同事的建议，以及好友的协作[LovelyBoyXSZ](https://github.com/LovelyBoyXSZ)
+框架正持续使用和不断完善，内部集成Rx系列相关的库(Rx的权限请求和下载)，感谢相关库的作者，还有前同事的建议，以及好友的协作[LovelyBoyXSZ](https://github.com/LovelyBoyXSZ)<br>
+
+部分代码有做相对应的注释，仅供参考，欢迎随手star。<br>
