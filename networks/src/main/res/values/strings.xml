@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">NetWorks</string>
+
+    <string name="error_tip">服务器正在加紧修复中，请稍后再试</string>
+    <string name="no_net_tip">无网络，请稍后再尝试</string>
+    <string name="timeout">您的网络环境较差，请稍后再试</string>
+    <string name="data_error">数据异常，请重试或联系相关人员</string>
+</resources>

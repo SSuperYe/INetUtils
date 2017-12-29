@@ -1,0 +1,92 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="horizontal_margin_big">20dp</dimen>
+    <dimen name="horizontal_margin_normal">15dp</dimen>
+    <dimen name="horizontal_margin_small">10dp</dimen>
+    <dimen name="vertical_margin_normal">10dp</dimen>
+    <dimen name="vertical_margin_big">15dp</dimen>
+    <dimen name="vertical_margin_bigger">20dp</dimen>
+    <dimen name="vertical_margin_small">8dp</dimen>
+    <dimen name="bar_height_small">33dp</dimen>
+    <dimen name="bar_height_normal">44dp</dimen>
+    <dimen name="bar_height_double">53dp</dimen>
+    <dimen name="drawable_padding_normal">10dp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+    <dimen name="text_size_normal">16sp</dimen>
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_smaller">12sp</dimen>
+    <dimen name="text_size_tiny">10sp</dimen>
+    <dimen name="button_height_normal">40dp</dimen>
+    <dimen name="button_height_small">28dp</dimen>
+    <dimen name="button_width_big">200dp</dimen>
+    <dimen name="pic_size_normal">60dp</dimen>
+    <!--购物车里的缩略图大小-->
+    <dimen name="thumb_size_cart">75dp</dimen>
+    <dimen name="fake_status_bar_height">0dp</dimen>
+    <dimen name="margin_list">9dp</dimen>
+
+
+    <dimen name="thirdty">30dp</dimen>
+    <dimen name="twenty">20dp</dimen>
+    <dimen name="ten">10dp</dimen>
+    <dimen name="eleven">11dp</dimen>
+    <dimen name="fifteen">15dp</dimen>
+    <dimen name="three">3dp</dimen>
+    <dimen name="five">5dp</dimen>
+    <dimen name="fourty_nine">49dp</dimen>
+    <dimen name="eighteen">18dp</dimen>
+    <dimen name="eight">8dp</dimen>
+    <dimen name="onehundredfourty">140dp</dimen>
+    <dimen name="thirdty_six">36dp</dimen>
+    <dimen name="thirdty_eight">38dp</dimen>
+    <dimen name="sixteen">16dp</dimen>
+    <dimen name="seventeen">17dp</dimen>
+    <dimen name="thirdty_two">32dp</dimen>
+    <dimen name="twelve">12dp</dimen>
+    <dimen name="four">4dp</dimen>
+    <dimen name="twenty_six">26dp</dimen>
+    <dimen name="one">1dp</dimen>
+    <dimen name="seventy_two">72dp</dimen>
+    <dimen name="one_hundred_fourty_five">145dp</dimen>
+    <dimen name="sixty_four">64dp</dimen>
+    <dimen name="eighty_eight">88dp</dimen>
+    <dimen name="dp_fifty_four">54dp</dimen>
+    <dimen name="eighty_two">82dp</dimen>
+
+    <dimen name="sp_eighteen">18sp</dimen>
+    <dimen name="sp_sixteen">16sp</dimen>
+    <dimen name="sp_fourteen">14sp</dimen>
+    <dimen name="sp_twelve">12sp</dimen>
+    <dimen name="sp_eleven">11sp</dimen>
+    <dimen name="sp_ten">10sp</dimen>
+
+
+    <dimen name="dp_one">1dp</dimen>
+    <dimen name="dp_ten">10dp</dimen>
+    <dimen name="dp_fifteen">15dp</dimen>
+    <dimen name="dp_fourty_seven">47dp</dimen>
+    <dimen name="dp_fourty">40dp</dimen>
+    <dimen name="dp_fourty_four">44dp</dimen>
+    <dimen name="dp_one_hundred">100dp</dimen>
+    <dimen name="dp_two_hundred">200dp</dimen>
+    <dimen name="dp_two_hundred_fifty">250dp</dimen>
+    <dimen name="dp_thirty">30dp</dimen>
+    <dimen name="dp_thirty_five">35dp</dimen>
+    <dimen name="dp_two">2dp</dimen>
+    <dimen name="dp_five">5dp</dimen>
+    <dimen name="dp_seven">7dp</dimen>
+    <dimen name="dp_twenty_five">25dp</dimen>
+    <dimen name="dp_three">3dp</dimen>
+    <dimen name="dp_twenty">20dp</dimen>
+    <dimen name="dp_sixty">60dp</dimen>
+    <dimen name="dp_eighty">80dp</dimen>
+    <dimen name="dp_fourty_eight">48dp</dimen>
+    <dimen name="dp_ninty">90dp</dimen>
+    <dimen name="dp_twelve">12dp</dimen>
+    <dimen name="dp_thirteen">13dp</dimen>
+    <dimen name="dp_fourteen">14dp</dimen>
+    <dimen name="dp_eight">8dp</dimen>
+
+</resources>
