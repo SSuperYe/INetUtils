@@ -8,7 +8,7 @@
 将[networks包](https://github.com/SSuperYe/INetUtils/tree/master/networks)import到项目中，如何import module就不说了，不懂的还请自行百度<br>
 之后需要将[NetWorks](https://github.com/SSuperYe/INetUtils/blob/master/networks/src/main/java/com/dangdailife/networks/network/NetWorks.java)
 中的url改为各自的域名，对一些header的操作也在[NetWorks](https://github.com/SSuperYe/INetUtils/blob/master/networks/src/main/java/com/dangdailife/networks/network/NetWorks.java)的NetWorkInterceptor中<br>
- 
+
 具体的api[请点击](https://github.com/SSuperYe/INetUtils/blob/master/networks/src/main/java/com/dangdailife/networks/network/api/ApiService.java)
 
 [完整的请求](https://github.com/SSuperYe/INetUtils/blob/master/app/src/main/java/com/dangdailife/test/MainActivity.java)
