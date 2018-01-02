@@ -1,10 +1,9 @@
-package com.dangdailife.test;
+package com.dangdailife.inetutils;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.dangdailife.networks.network.BaseResult;
-import com.dangdailife.networks.network.HttpExceptionHandler;
 import com.dangdailife.networks.network.NetWorks;
 import com.dangdailife.networks.network.subscriber.MySubscriber;
 

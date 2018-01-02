@@ -1,4 +1,4 @@
-package com.dangdailife.test;
+package com.dangdailife.inetutils;
 
 import org.junit.Test;
 

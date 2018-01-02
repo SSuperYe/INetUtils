@@ -1,4 +1,4 @@
-package com.dangdailife.test;
+package com.dangdailife.inetutils;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
