@@ -3,12 +3,15 @@ package com.dangdailife.networks.network.subscriber;
 import android.app.Activity;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dangdailife.networks.R;
 import com.dangdailife.networks.network.HttpExceptionHandler;
 import com.dangdailife.networks.network.progress.ProgressCancelListener;
 import com.dangdailife.networks.network.progress.SimpleLoadDialog;
+import com.dangdailife.networks.network.utils.LogUtil;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -29,8 +32,21 @@ public abstract class MySubscriber<T> extends Subscriber<T> implements ProgressC
 
     private SimpleLoadDialog dialog;
 
+    protected TextView hintTxt;
+
     public MySubscriber(Activity activity) {
+        this(activity, null, false);
+    }
+
+    public MySubscriber(Activity activity, TextView tvEmptyHint) {
+        this(activity, tvEmptyHint, false);
+    }
+
+    public MySubscriber(Activity activity, TextView tvEmptyHint, boolean isShowEmptyTxt) {
         this.mActivity = activity;
+        if (isShowEmptyTxt) {
+            this.hintTxt = tvEmptyHint;
+        }
         dialog = new SimpleLoadDialog(activity, this, true);
     }
 
@@ -62,8 +78,21 @@ public abstract class MySubscriber<T> extends Subscriber<T> implements ProgressC
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        if (hintTxt == null) {
+            return;
+        }
+        hintTxt.setVisibility(View.VISIBLE);
+        hintTxt.setText(null);
+    }
+
+    @Override
     public void onNext(T t) {
         if (t != null) {
+            if (hintTxt != null) {
+                hintTxt.setVisibility(View.GONE);
+            }
             onSuccess(t);
         } else {
             Toast.makeText(mActivity.getApplicationContext(), mActivity.getString(R.string.data_error), Toast.LENGTH_SHORT).show();
@@ -72,22 +101,27 @@ public abstract class MySubscriber<T> extends Subscriber<T> implements ProgressC
 
     @Override
     public void onError(Throwable e) {
-        StringWriter stringWriter = new StringWriter();
-        e.printStackTrace(new PrintWriter(stringWriter));
-        Log.e("---------onError", stringWriter.toString());
+        try {
+            StringWriter stringWriter = new StringWriter();
+            e.printStackTrace(new PrintWriter(stringWriter));
+            Log.e("---------onError", stringWriter.toString());
 
-        String msg = HttpExceptionHandler.handlerException(e, mActivity);
-        if (!TextUtils.isEmpty(msg))
-            onFailure(msg);
-        dismissProgressDialog();
+            String msg = HttpExceptionHandler.handlerException(e, mActivity);
+            if (!TextUtils.isEmpty(msg))
+                onFailure(msg);
+            dismissProgressDialog();
+        } catch (Exception e1) {
+            LogUtil.e("---------onError", e1.getMessage());
+        }
     }
 
 
     /**
-     * dialog消失后解绑
+     * dialog消失后解绑(被取消,如按了返回键)
      */
     @Override
     public void onCancelProgress() {
+        mActivity.finish();
         if (!this.isUnsubscribed()) {
             this.unsubscribe();
         }
@@ -96,4 +130,5 @@ public abstract class MySubscriber<T> extends Subscriber<T> implements ProgressC
     protected abstract void onSuccess(T t);
 
     protected abstract void onFailure(String message);
+
 }
