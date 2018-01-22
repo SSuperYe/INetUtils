@@ -60,7 +60,7 @@ public class NetWorks {
 
     // TODO: 2017/8/1 0001 网络协议
     private static final String TAG = "NetWorks";
-    public static final String BASE_WEB_URL = BuildConfig.DEBUG ? "http://api.b2c.d.hycaichang.com/" : "";
+    public static final String BASE_WEB_URL = BuildConfig.DEBUG ? "" : "";
     public static final String BASE_URL = BASE_WEB_URL + "api/";
 
     private static final String MEDIA_TYPE_JSON = "application/json; charset=utf-8";
