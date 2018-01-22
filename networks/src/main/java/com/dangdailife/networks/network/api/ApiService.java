@@ -66,7 +66,7 @@ public interface ApiService {
     @GET("your api")
     Observable<BaseResult> testGetQuery(@Query("your param") String param);
 
-    @GET("your api")
+    @GET("shop/store/shop/list")
     Observable<BaseResult<BaseResult>> testGetQuery1(@Query("your param") String param);
 
     /**

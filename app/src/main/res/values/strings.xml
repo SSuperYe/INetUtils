@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Test</string>
     <string name="empty_test">空布局测试</string>
+    <string name="load">不传act的请求</string>
 </resources>
