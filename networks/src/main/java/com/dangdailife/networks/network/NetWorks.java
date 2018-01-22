@@ -6,6 +6,7 @@ import com.dangdailife.networks.BuildConfig;
 import com.dangdailife.networks.network.api.ApiService;
 import com.dangdailife.networks.network.cookie.CookieManager;
 import com.dangdailife.networks.network.factory.CustomGsonConverterFactory;
+import com.dangdailife.networks.network.subscriber.EmptyTxtSubscriber;
 import com.dangdailife.networks.network.subscriber.FileSubscriber;
 import com.dangdailife.networks.network.subscriber.MySubscriber;
 import com.dangdailife.networks.network.utils.LogUtil;
@@ -108,6 +109,9 @@ public class NetWorks {
                     @Override
                     public void call() {
                         subscriber.showProgressDialog();
+                        if (subscriber instanceof EmptyTxtSubscriber) {
+                            ((EmptyTxtSubscriber) subscriber).setHintTxtVisible();
+                        }
                     }
                 })
                 .map(new Func1<T, U>() {
@@ -133,6 +137,9 @@ public class NetWorks {
                     @Override
                     public void call() {
                         subscriber.showProgressDialog();
+                        if (subscriber instanceof EmptyTxtSubscriber) {
+                            ((EmptyTxtSubscriber) subscriber).setHintTxtVisible();
+                        }
                     }
                 })
                 .subscribe(subscriber);

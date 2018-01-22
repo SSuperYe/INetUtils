@@ -1,11 +1,81 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="OverflowMenuStyle" parent="@style/Widget.AppCompat.PopupMenu.Overflow">
+        <!-- 是否覆盖锚点，默认为true，即盖住Toolbar -->
+        <item name="overlapAnchor">false</item>
+        <!-- 弹出层背景颜色 -->
+        <item name="android:popupBackground">@color/colorPrimary</item>
+        <!-- 设置弹出菜单文字颜色 -->
+        <item name="android:textColor">@color/textColorNormal</item>
+    </style>
+
+    <!--toolbar的居中文字，背景和文字颜色冲突，不使用ThemeOverlay.AppCompat.Dark.ActionBar,colorControlNormal为改变返回键颜色-->
+    <style name="WhiteBackTheme">
+        <item name="colorControlNormal">@color/white</item>
+        <item name="actionMenuTextColor">@color/white</item>
+    </style>
+
+    <style name="GeneralText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="TenNormalText" parent="GeneralText">
+        <item name="android:textSize">@dimen/sp_ten</item>
+        <item name="android:textColor">@color/textColorNormal</item>
+    </style>
+
+    <style name="TenHintText" parent="GeneralText">
+        <item name="android:textSize">@dimen/sp_ten</item>
+        <item name="android:textColor">@color/textColorHint</item>
+    </style>
+
+    <style name="TwelveNormalText" parent="GeneralText">
+        <item name="android:textSize">@dimen/sp_twelve</item>
+        <item name="android:textColor">@color/textColorNormal</item>
+    </style>
+
+    <style name="TwelveHintText" parent="GeneralText">
+        <item name="android:textSize">@dimen/sp_twelve</item>
+        <item name="android:textColor">@color/textColorHint</item>
+    </style>
+
+    <style name="FourteenNormalText" parent="GeneralText">
+        <item name="android:textSize">@dimen/sp_fourteen</item>
+        <item name="android:textColor">@color/textColorNormal</item>
+    </style>
+
+    <style name="FourteenHintText" parent="GeneralText">
+        <item name="android:textSize">@dimen/sp_fourteen</item>
+        <item name="android:textColor">@color/textColorHint</item>
+    </style>
+
+    <style name="SixteenNormalText" parent="GeneralText">
+        <item name="android:textSize">@dimen/sp_sixteen</item>
+        <item name="android:textColor">@color/textColorNormal</item>
+    </style>
+
+    <style name="SixteenHintText" parent="GeneralText">
+        <item name="android:textSize">@dimen/sp_sixteen</item>
+        <item name="android:textColor">@color/textColorHint</item>
+    </style>
+
+    <style name="EighteenNormalText" parent="GeneralText">
+        <item name="android:textSize">@dimen/sp_eighteen</item>
+        <item name="android:textColor">@color/textColorNormal</item>
+    </style>
+
+    <style name="EighteenHintText" parent="GeneralText">
+        <item name="android:textSize">@dimen/sp_eighteen</item>
+        <item name="android:textColor">@color/textColorHint</item>
+    </style>
 </resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_fourty_seven"
+    android:background="?attr/colorPrimary"
+    android:title=""
+    app:contentInsetStart="0dp"
+    app:contentInsetStartWithNavigation="0dp"
+    app:popupTheme="@style/OverflowMenuStyle"
+    app:theme="@style/WhiteBackTheme">
+
+    <TextView
+        android:id="@+id/title_name"
+        style="@style/EighteenNormalText"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_eighteen" />
+
+</android.support.v7.widget.Toolbar>

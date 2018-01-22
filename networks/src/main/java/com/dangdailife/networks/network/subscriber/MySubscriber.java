@@ -32,25 +32,9 @@ public abstract class MySubscriber<T> extends Subscriber<T> implements ProgressC
 
     private SimpleLoadDialog dialog;
 
-    protected TextView hintTxt;
-
     public MySubscriber(Activity activity) {
-        this(activity, null, false);
-    }
-
-    public MySubscriber(Activity activity, TextView tvEmptyHint) {
-        this(activity, tvEmptyHint, false);
-    }
-
-    public MySubscriber(Activity activity, TextView tvEmptyHint, boolean isShowEmptyTxt) {
         this.mActivity = activity;
-        if (isShowEmptyTxt) {
-            this.hintTxt = tvEmptyHint;
-        }
         dialog = new SimpleLoadDialog(activity, this, true);
-    }
-
-    public MySubscriber() {
     }
 
     /**
@@ -80,19 +64,11 @@ public abstract class MySubscriber<T> extends Subscriber<T> implements ProgressC
     @Override
     public void onStart() {
         super.onStart();
-        if (hintTxt == null) {
-            return;
-        }
-        hintTxt.setVisibility(View.VISIBLE);
-        hintTxt.setText(null);
     }
 
     @Override
     public void onNext(T t) {
         if (t != null) {
-            if (hintTxt != null) {
-                hintTxt.setVisibility(View.GONE);
-            }
             onSuccess(t);
         } else {
             Toast.makeText(mActivity.getApplicationContext(), mActivity.getString(R.string.data_error), Toast.LENGTH_SHORT).show();
@@ -111,7 +87,7 @@ public abstract class MySubscriber<T> extends Subscriber<T> implements ProgressC
                 onFailure(msg);
             dismissProgressDialog();
         } catch (Exception e1) {
-            LogUtil.e("---------onError", e1.getMessage());
+            LogUtil.e("---------Exception", e1.getMessage());
         }
     }
 
