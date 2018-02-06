@@ -28,7 +28,7 @@ public class SimpleLoadDialog extends Handler {
 
     public SimpleLoadDialog(Context context, ProgressCancelListener mProgressCancelListener,
                             boolean cancelable) {
-        super();
+        super(context.getMainLooper());
         this.reference = new WeakReference<>(context);
         this.mProgressCancelListener = mProgressCancelListener;
         this.cancelable = cancelable;
