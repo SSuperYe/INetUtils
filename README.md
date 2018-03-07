@@ -26,6 +26,10 @@
 ### 空布局demo[EmptyActivity](https://github.com/SSuperYe/INetUtils/blob/master/app/src/main/java/com/dangdailife/inetutils/EmptyActivity.java)<br>
 同时增加了progressBar形式的加载，对比dialog形式，它无需处理dialog被主动dismiss的情景，但是需要对progressBar位置有一定的要求，比如需要在界面正上方，有需要的可以看一下demo，仅供参考<br>
 
+## 将module的application移除
+使用该module前，请先执行[NetWorks](https://github.com/SSuperYe/INetUtils/blob/master/networks/src/main/java/com/dangdailife/networks/network/NetWorks.java)
+中的init方法
+
 框架正持续使用和不断完善，内部集成Rx系列相关的库(Rx的权限请求和下载)，感谢相关库的作者，还有前同事的建议，以及好友的协作[LovelyBoyXSZ](https://github.com/LovelyBoyXSZ)<br>
 
 部分代码有做相对应的注释，仅供参考，欢迎随手star。<br>
