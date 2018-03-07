@@ -1,4 +1,4 @@
-package com.dangdailife.networks;
+package com.dangdailife.inetutils;
 
 import android.app.Application;
 import android.os.Build;

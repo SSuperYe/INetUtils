@@ -8,8 +8,6 @@ import android.util.Log;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 
-import com.dangdailife.networks.NetWorkApplication;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -39,9 +37,11 @@ public class PersistentCookieStore {
     //指定java 8 的时候，似乎会导致高编译低运行，暂时这么处理，此处不再ConcurrentHashMap，改为ConcurrentMap
     private final Map<String, ConcurrentMap<String, Cookie>> cookies;
     private final SharedPreferences cookiePrefs;
+    private Context mContext;
 
 
     public PersistentCookieStore(Context context) {
+        this.mContext = context;
         cookiePrefs = context.getSharedPreferences(COOKIE_PREFS, 0);
         cookies = new HashMap<>();
 
@@ -78,7 +78,7 @@ public class PersistentCookieStore {
             cookies.get(url.host()).put(name, cookie);
             //同步cookie到webview
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-                CookieSyncManager.createInstance(NetWorkApplication.getInstance());
+                CookieSyncManager.createInstance(mContext);
             }
             CookieManager cookieManager = CookieManager.getInstance();
             //这边要使用toString 方法而不是只获取value，与cookie的工作机制有关，参考 http://kinbos.blog.51cto.com/2092114/1347859

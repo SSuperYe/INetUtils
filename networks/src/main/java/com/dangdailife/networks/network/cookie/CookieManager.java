@@ -1,6 +1,6 @@
 package com.dangdailife.networks.network.cookie;
 
-import com.dangdailife.networks.NetWorkApplication;
+import android.content.Context;
 
 import java.util.List;
 
@@ -15,7 +15,13 @@ import okhttp3.HttpUrl;
  * @email superrhye@163.com
  */
 public class CookieManager implements CookieJar {
-    private final PersistentCookieStore cookieStore = new PersistentCookieStore(NetWorkApplication.getInstance());
+
+    private final PersistentCookieStore cookieStore;
+
+    public CookieManager(Context context) {
+        cookieStore = new PersistentCookieStore(context);
+    }
+
     @Override
     public void saveFromResponse(HttpUrl url, List<Cookie> cookies) {
         if (cookies != null && !cookies.isEmpty()) {

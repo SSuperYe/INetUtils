@@ -1,8 +1,8 @@
 package com.dangdailife.networks.network;
 
+import android.content.Context;
 import android.util.Log;
 
-import com.dangdailife.networks.BuildConfig;
 import com.dangdailife.networks.network.api.ApiService;
 import com.dangdailife.networks.network.cookie.CookieManager;
 import com.dangdailife.networks.network.factory.CustomGsonConverterFactory;
@@ -23,6 +23,7 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import rx.Observable;
 import rx.Subscriber;
 import rx.Subscription;
+import rx.android.BuildConfig;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action0;
 import rx.functions.Func1;
@@ -69,13 +70,13 @@ public class NetWorks {
     /**
      * 初始化请求框架
      */
-    static {
+    static void init(Context context) {
         if (null == api) {
             synchronized (NetWorks.class) {
                 if (null == mOkHttpClient) {
                     mOkHttpClient = new OkHttpClient.Builder()
                             .addInterceptor(new NetWorkInterceptor())
-                            .cookieJar(new CookieManager())
+                            .cookieJar(new CookieManager(context))
                             .connectTimeout(5, TimeUnit.SECONDS)
                             .build();
                 }
