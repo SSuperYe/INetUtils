@@ -70,7 +70,7 @@ public class NetWorks {
     /**
      * 初始化请求框架
      */
-    static void init(Context context) {
+    public static void init(Context context) {
         if (null == api) {
             synchronized (NetWorks.class) {
                 if (null == mOkHttpClient) {

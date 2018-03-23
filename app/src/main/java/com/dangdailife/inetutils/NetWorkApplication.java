@@ -4,6 +4,8 @@ import android.app.Application;
 import android.os.Build;
 import android.util.ArrayMap;
 
+import com.dangdailife.networks.network.NetWorks;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,6 +50,8 @@ public class NetWorkApplication extends Application {
         super.onCreate();
 
         mApplication = this;
+
+        NetWorks.init(this);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             map = new ArrayMap<>();
