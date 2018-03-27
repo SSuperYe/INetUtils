@@ -46,6 +46,7 @@ public abstract class EmptyTxtSubscriber<T> extends MySubscriber<T> {
     @Override
     protected void onFailure(String message) {
         hintTxt.setVisibility(View.VISIBLE);
+        hintTxt.setText(message);
         Toast.makeText(mActivity, message, Toast.LENGTH_SHORT).show();
     }
 }

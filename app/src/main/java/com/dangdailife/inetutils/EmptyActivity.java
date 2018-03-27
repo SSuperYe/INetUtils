@@ -41,7 +41,7 @@ public class EmptyActivity extends BaseLoadActivity {
      * dialog形式的加载框
      */
     private void emptyGet(){
-        NetWorks.setNoProgressSubscribe(NetWorks.api.testGetQuery1("11"), new EmptyTxtSubscriber<BaseResult>(mActivity, emptyTxtView) {
+        NetWorks.setSubscribe(NetWorks.api.testGetQuery1("11"), new EmptyTxtSubscriber<BaseResult>(mActivity, emptyTxtView) {
 
             @Override
             protected void onSuccess(BaseResult baseResult) {
@@ -49,13 +49,13 @@ public class EmptyActivity extends BaseLoadActivity {
                 tvTest.setText("success");
             }
 
-            @Override
-            protected void onFailure(String message) {
-                super.onFailure(message);
+//            @Override
+//            protected void onFailure(String message) {
+//                super.onFailure(message);
                 //这种前往复杂界面的请求，出现错误，一般是需要展示空界面的，没有理由将无数据的页面展示，想改可以重写选择gone
                 //显示文案可以自定义
-                emptyTxtView.setText(message);
-            }
+//                emptyTxtView.setText(message);
+//            }
         });
     }
 
