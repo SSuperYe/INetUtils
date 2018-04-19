@@ -3,6 +3,7 @@ package com.dangdailife.inetutils;
 import android.view.View;
 import android.widget.TextView;
 
+import com.dangdailife.inetutils.api.ApiService;
 import com.dangdailife.inetutils.base.BaseLoadActivity;
 import com.dangdailife.networks.network.BaseResult;
 import com.dangdailife.networks.network.NetWorks;
@@ -40,8 +41,8 @@ public class EmptyActivity extends BaseLoadActivity {
     /**
      * dialog形式的加载框
      */
-    private void emptyGet(){
-        NetWorks.setSubscribe(NetWorks.api.testGetQuery1("11"), new EmptyTxtSubscriber<BaseResult>(mActivity, emptyTxtView) {
+    private void emptyGet() {
+        NetWorks.setSubscribe(NetWorks.create(ApiService.class).testGetQuery1("11"), new EmptyTxtSubscriber<BaseResult>(mActivity, emptyTxtView) {
 
             @Override
             protected void onSuccess(BaseResult baseResult) {
@@ -52,8 +53,8 @@ public class EmptyActivity extends BaseLoadActivity {
 //            @Override
 //            protected void onFailure(String message) {
 //                super.onFailure(message);
-                //这种前往复杂界面的请求，出现错误，一般是需要展示空界面的，没有理由将无数据的页面展示，想改可以重写选择gone
-                //显示文案可以自定义
+            //这种前往复杂界面的请求，出现错误，一般是需要展示空界面的，没有理由将无数据的页面展示，想改可以重写选择gone
+            //显示文案可以自定义
 //                emptyTxtView.setText(message);
 //            }
         });
@@ -62,8 +63,8 @@ public class EmptyActivity extends BaseLoadActivity {
     /**
      * progressBar形式的加载框，不需要处理按返回dialog的消失的情景
      */
-    private void loadGet(){
-        NetWorks.setNoProgressSubscribe(NetWorks.api.testGetQuery1("11"), new EmptyTxtSubscriber<BaseResult>(mActivity, emptyTxtView) {
+    private void loadGet() {
+        NetWorks.setNoProgressSubscribe(NetWorks.create(ApiService.class).testGetQuery1("11"), new EmptyTxtSubscriber<BaseResult>(mActivity, emptyTxtView) {
             @Override
             public void onStart() {
                 super.onStart();

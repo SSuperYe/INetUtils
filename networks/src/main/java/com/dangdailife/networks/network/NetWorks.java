@@ -3,7 +3,6 @@ package com.dangdailife.networks.network;
 import android.content.Context;
 import android.util.Log;
 
-import com.dangdailife.networks.network.api.ApiService;
 import com.dangdailife.networks.network.cookie.CookieManager;
 import com.dangdailife.networks.network.factory.CustomGsonConverterFactory;
 import com.dangdailife.networks.network.subscriber.EmptyTxtSubscriber;
@@ -38,9 +37,6 @@ import zlc.season.rxdownload.RxDownload;
  */
 public class NetWorks {
 
-    private NetWorks() {
-    }
-
     /**
      * 操作符
      * flatmap：一对多转化，可以用做处理需要的数据类型，如可以处理A的数据集中的类B，也可以用做嵌套网络请求，将响应分为多级,对单条数据流起作用
@@ -57,7 +53,7 @@ public class NetWorks {
     /**
      * api服务
      */
-    public static ApiService api;
+//    public static ApiService api;
 
     // TODO: 2017/8/1 0001 网络协议
     private static final String TAG = "NetWorks";
@@ -66,33 +62,46 @@ public class NetWorks {
 
     private static final String MEDIA_TYPE_JSON = "application/json; charset=utf-8";
     private static final String HEAD_ACCEPT = "Accept";
+    private static NetWorks instance;
+    private Retrofit mRetrofit;
+
+    private NetWorks(Context context) {
+        if (null == mOkHttpClient) {
+            mOkHttpClient = new OkHttpClient.Builder()
+                    .addInterceptor(new NetWorkInterceptor())
+                    .cookieJar(new CookieManager(context))
+                    .connectTimeout(5, TimeUnit.SECONDS)
+                    .build();
+        }
+        mRetrofit = new Retrofit.Builder()
+                //设置服务器路径
+                .baseUrl(BASE_URL)
+                //添加转化库，默认是Gson
+//                    .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(CustomGsonConverterFactory.create())
+                //添加回调库，采用RxJava
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                //设置使用okhttp网络请求
+                .client(mOkHttpClient)
+                .build();
+    }
 
     /**
      * 初始化请求框架
      */
     public static void init(Context context) {
-        if (null == api) {
+        if (instance == null) {
             synchronized (NetWorks.class) {
-                if (null == mOkHttpClient) {
-                    mOkHttpClient = new OkHttpClient.Builder()
-                            .addInterceptor(new NetWorkInterceptor())
-                            .cookieJar(new CookieManager(context))
-                            .connectTimeout(5, TimeUnit.SECONDS)
-                            .build();
-                }
-                api = new Retrofit.Builder()
-                        //设置服务器路径
-                        .baseUrl(BASE_URL)
-                        //添加转化库，默认是Gson
-//                    .addConverterFactory(GsonConverterFactory.create())
-                        .addConverterFactory(CustomGsonConverterFactory.create())
-                        //添加回调库，采用RxJava
-                        .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                        //设置使用okhttp网络请求
-                        .client(mOkHttpClient)
-                        .build().create(ApiService.class);
+                instance = new NetWorks(context);
             }
         }
+    }
+
+    public static <T> T create(Class<T> service) {
+        if (instance == null || instance.mRetrofit == null) {
+            throw new IllegalArgumentException("netutils init first");
+        }
+        return instance.mRetrofit.create(service);
     }
 
     /**

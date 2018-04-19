@@ -3,6 +3,7 @@ package com.dangdailife.inetutils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.dangdailife.inetutils.api.ApiService;
 import com.dangdailife.networks.network.BaseResult;
 import com.dangdailife.networks.network.NetWorks;
 import com.dangdailife.networks.network.subscriber.MySubscriber;
@@ -16,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         //此处栗子为testGetQuery1()返回的是BaseResult<BaseResult>，直接取到BaseResult里面的泛型BaseResult
         //我们的api返回的数据经常是data里面含有一个对象等等，所以，此方法常用
-        NetWorks.setSubscribe(NetWorks.api.testGetQuery1(""), new MySubscriber<BaseResult>(this) {
+        NetWorks.setSubscribe(NetWorks.create(ApiService.class).testGetQuery1(""), new MySubscriber<BaseResult>(this) {
             @Override
             protected void onSuccess(BaseResult baseResult) {
                 // TODO: 2017/12/28 0028 做一些操作
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         //该方法直接获取整个返回对象
         //常用于为了请求得到一个结果的api，比如一个获取成功与否的请求
-        NetWorks.setSpecialSubscribe(NetWorks.api.testGetQuery(""), new MySubscriber<BaseResult>(this) {
+        NetWorks.setSpecialSubscribe(NetWorks.create(ApiService.class).testGetQuery(""), new MySubscriber<BaseResult>(this) {
             @Override
             protected void onSuccess(BaseResult baseResult) {
                 // TODO: 2017/12/28 0028 做一些操作

@@ -1,4 +1,4 @@
-package com.dangdailife.networks.network.api;
+package com.dangdailife.inetutils.api;
 
 
 import com.dangdailife.networks.network.BaseResult;
